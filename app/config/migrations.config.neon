@@ -1,0 +1,4 @@
+migrations:
+	name: Tiplap.io
+	connection: @Doctrine\DBAL\Connection
+	namespace: Tiplap\Domain\Migrations

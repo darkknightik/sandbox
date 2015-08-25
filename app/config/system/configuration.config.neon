@@ -1,0 +1,10 @@
+parameters:
+	configuration:
+		foo: ""
+services:
+	# Configurator
+	# Reads configuration block
+	-
+		class: Tiplap\Configuration\Configuration
+		arguments:
+			- %configuration%

@@ -1,0 +1,27 @@
+{
+	"name": "Tiplap",
+	"description": "Planing tool",
+	"type": "tool",
+	"authors": [
+		{
+			"name": "Ondřej Pecina",
+			"email": "pecina.ondrej@gmail.com"
+		}
+	],
+	"config": {
+		"vendor-dir": "vendor"
+	},
+	"require": {
+		"php": ">= 5.5.2",
+		"nette/nette": "2.3.4",
+		"darkknightik/nette-injects-extension": "dev-master",
+		"doctrine/migrations": "v1.0-ALPHA2",
+		"kdyby/doctrine": "dev-master",
+		"kdyby/events": "~2.4.0@dev",
+		"kdyby/redis": "@dev",
+		"beberlei/DoctrineExtensions": "dev-master"
+	},
+	"require-dev": {
+		"nette/tester": "~1.3"
+	}
+}

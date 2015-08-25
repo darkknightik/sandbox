@@ -1,0 +1,7 @@
+{block content}
+	Hello world!
+	<ul>
+		<li n:foreach="$items as $item">{$item->id} - {$item->fooName}</li>
+	</ul>
+	<a n:href="insert!">Vložit nový</a>
+{/block}

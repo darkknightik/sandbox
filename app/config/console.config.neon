@@ -1,0 +1,8 @@
+console:
+	name: Tiplap
+	version: dev
+
+services:
+#	-
+#		class: Tiplap\Console\InstallCommand
+#		tags: [kdyby.console.command]

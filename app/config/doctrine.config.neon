@@ -1,0 +1,30 @@
+doctrine:
+	console: true
+	driver: pdo_mysql
+	host: 127.0.0.1
+	user: changeme
+	password: changeme
+	dbname: changeme
+	charset: utf8
+	metadata:
+		Tiplap: %appDir%/libs
+	proxyDir: %tempDir%/proxies
+	proxyNamespace: Tiplap\Domain\Proxies
+	autoGenerateProxyClasses: true
+	dql:
+		string:
+			ifnull: DoctrineExtensions\Query\Mysql\IfNull
+
+services:
+	-
+		class: Tiplap\Doctrine\Listeners\CacheListener
+		tags: [kdyby.subscriber]
+	-
+		class: Doctrine\ORM\Tools\Console\Command\InfoCommand
+		tags: [kdyby.console.command]
+	-
+		class: Doctrine\ORM\Tools\Console\Command\ValidateSchemaCommand
+		tags: [kdyby.console.command]
+	-
+		class: Doctrine\ORM\Tools\Console\Command\RunDqlCommand
+		tags: [kdyby.console.command]

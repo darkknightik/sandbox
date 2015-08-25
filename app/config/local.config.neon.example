@@ -1,0 +1,8 @@
+nette:
+	debugger:
+		email: # -> enter admin mail here
+
+doctrine:
+	user: changeme
+	password: changeme
+	dbname: changeme
