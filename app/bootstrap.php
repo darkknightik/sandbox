@@ -16,9 +16,9 @@ $configurator->setTempDirectory(__DIR__ . '/../temp');
 
 // Enable RobotLoader - this will load all classes automatically
 $loader = new \Nette\Loaders\RobotLoader();
-$loader->setCacheStorage(new \Kdyby\Redis\RedisStorage(new \Kdyby\Redis\RedisClient()))
+/*$loader->setCacheStorage(new \Kdyby\Redis\RedisStorage(new \Kdyby\Redis\RedisClient()))
 	->addDirectory(__DIR__)
-	->register();
+	->register();*/
 
 
 
