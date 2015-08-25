@@ -18,7 +18,7 @@ class HomepagePresenter extends Presenter
 
 	public function actionDefault() {
 
-		$this->getTemplate()->items = $this->fooFacade->find(new FooFilter(0,10));
+		$this->getTemplate()->items = $this->fooFacade->find(new FooFilter(array()));
 	}
 
 	public function handleInsert() {

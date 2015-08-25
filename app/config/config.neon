@@ -21,6 +21,7 @@ includes:
 	- system/facade.config.neon
 	- system/presenter.config.neon
 	- system/configuration.config.neon
+	- system/control.config.neon
 
 php:
 	date.timezone: Europe/Prague
@@ -46,6 +47,9 @@ services:
 
 
 	router: @Tiplap\RouterFactory::createRouter
+
+	- Tiplap\Security\Md5PasswordHash
+	authenticator: Tiplap\Security\Authenticators\BackendAuthenticator
 
 	cache:
 		class: Nette\Caching\Cache

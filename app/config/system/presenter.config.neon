@@ -1,1 +1,2 @@
 services:
+	- Tiplap\Backend\Sign\DefaultPresenter

@@ -33,17 +33,15 @@ abstract class Control extends \Nette\Application\UI\Control
 	{
 		$template = $this->getTemplate();
 
-		if ($template instanceof FileTemplate) {
-			$classFile = $this->getReflection()->getFileName();
+		$classFile = $this->getReflection()->getFileName();
 
-			list (, $view) = Strings::match($renderMethod, '~::render(.*)\z~');
+		list (, $view) = Strings::match($renderMethod, '~::render(.*)\z~');
 
-			$templateFile = Strings::replace($classFile, '~(?<=/)(.+)\.php\z~i', function ($m) use ($view) {
-				return $m[1] . ($view ? ".$view" : '') . '.latte';
-			});
+		$templateFile = Strings::replace($classFile, '~(?<=/)(.+)\.php\z~i', function ($m) use ($view) {
+			return $m[1] . ($view ? ".$view" : '') . '.latte';
+		});
 
-			$template->setFile($templateFile);
-		}
+		$template->setFile($templateFile);
 
 		$template->render();
 	}
