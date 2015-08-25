@@ -11,13 +11,7 @@ extensions:
 	doctrine: Kdyby\Doctrine\DI\OrmExtension
 	migrations: Tiplap\DI\Extension\MigrationsExtension
 	injects: Majkl578\NetteAddons\Injects\DI\InjectsExtension
-	redis: Kdyby\Redis\DI\RedisExtension
-
-redis:
-	journal: on
-	session: on
-	storage: on
-	debugger: off
+	#redis: Kdyby\Redis\DI\RedisExtension
 
 includes:
 	- doctrine.config.neon
