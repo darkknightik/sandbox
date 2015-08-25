@@ -1,10 +1,10 @@
 <?php
 namespace Tiplap\Domain\Foo;
-use Kdyby\Doctrine\EntityDao;
+use Doctrine\ORM\EntityRepository;
 
 /**
  * @author Pecina Ondřej <pecina.ondrej@gmail.com>
  */
-class FooDao extends EntityDao
+class FooRepository extends EntityRepository
 {
 }
