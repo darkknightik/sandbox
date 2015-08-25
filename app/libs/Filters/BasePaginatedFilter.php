@@ -20,11 +20,15 @@ abstract class BasePaginatedFilter extends BaseFilter implements IFilter
 	 */
 	public function __construct(array $data = array())
 	{
-		/** @noinspection PhpUndefinedFieldInspection */
-		$this->offset = $data->offset;
+		if (isset($data->offset)) {
+			/** @noinspection PhpUndefinedFieldInspection */
+			$this->offset = $data->offset;
+		}
 
-		/** @noinspection PhpUndefinedFieldInspection */
-		$this->limit = $data->limit;
+		if (isset($data->limit)) {
+			/** @noinspection PhpUndefinedFieldInspection */
+			$this->offset = $data->limit;
+		}
 
 		parent::__construct($data);
 	}

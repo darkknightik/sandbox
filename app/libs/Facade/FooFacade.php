@@ -34,8 +34,8 @@ class FooFacade extends BaseFacade
 		$pf =  new PaginatorFixed($this->fooRepository->createQueryBuilder('i'));
 
 		return $pf->getQuery()
-			->setMaxResults($filter->getLimit())
-			->setFirstResult($filter->getOffset())
+			->setMaxResults($filter->limit)
+			->setFirstResult($filter->offset)
 			->getResult();
 	}
 
