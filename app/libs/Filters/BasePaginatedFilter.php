@@ -1,65 +1,31 @@
 <?php
 
 namespace Tiplap\Filters;
+use Tiplap\Filters\Traits\BasePaginatedFilterTrait;
 
 /**
  * Abstract filter for paginating result
  *
  * @author Pecina Ondřej <pecina.ondrej@gmail.com>
  */
-abstract class BasePaginatedFilter implements IFilter
+abstract class BasePaginatedFilter extends BaseFilter implements IFilter
 {
-	/** @var int */
-	private $offset;
-	/** @var int */
-	private $limit;
+
+	use BasePaginatedFilterTrait;
 
 	/**
-	 * FilesFilter constructor.
-	 * @param $offset
-	 * @param $limit
+	 * Populate filter form array
+	 *
+	 * @param array $data
 	 */
-	public function __construct($offset, $limit)
+	public function __construct(array $data = array())
 	{
-		$this->offset = $offset;
-		$this->limit = $limit;
+		/** @noinspection PhpUndefinedFieldInspection */
+		$this->offset = $data->offset;
+
+		/** @noinspection PhpUndefinedFieldInspection */
+		$this->limit = $data->limit;
+
+		parent::__construct($data);
 	}
-
-	/**
-	 * @return int
-	 */
-	public function getOffset()
-	{
-		return $this->offset;
-	}
-
-	/**
-	 * @param int $offset
-	 * @return BasePaginatedFilter
-	 */
-	public function setOffset($offset)
-	{
-		$this->offset = (int) $offset;
-		return $this;
-	}
-
-	/**
-	 * @return int
-	 */
-	public function getLimit()
-	{
-		return $this->limit;
-	}
-
-	/**
-	 * @param int $limit
-	 * @return BasePaginatedFilter
-	 */
-	public function setLimit($limit)
-	{
-		$this->limit = (int) $limit;
-		return $this;
-	}
-
-
 }
