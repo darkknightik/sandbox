@@ -8,7 +8,7 @@ use Tiplap\Doctrine\Entities\IdentifiedEntity;
 /**
  * User Entity
  *
- * @ORM\Entity(repositoryClass="FooDao")
+ * @ORM\Entity(repositoryClass="FooRepository")
  * @ORM\Table(name="tp_foo", indexes={
  * })
  * @author Pecina Ondřej <pecina.ondrej@gmail.com>

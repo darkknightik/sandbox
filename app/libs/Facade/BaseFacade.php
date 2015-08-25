@@ -1,6 +1,7 @@
 <?php
 
 namespace Tiplap\Facade;
+use Doctrine\ORM\UnitOfWork;
 use Kdyby\Doctrine\EntityManager;
 use Tiplap\Doctrine\Entities\BaseEntity;
 use Tiplap\Doctrine\Tools\FormEntityMapper;
@@ -46,7 +47,15 @@ abstract class BaseFacade implements IFacade
 	 */
 	protected function saveEntity(BaseEntity $baseEntity)
 	{
-		$this->entityManager->persist($baseEntity);
+		$isPersisted = UnitOfWork::STATE_MANAGED === $this->entityManager->getUnitOfWork()->getEntityState($baseEntity);
+
+		if ($isPersisted) {
+			$this->entityManager->merge($baseEntity);
+		}
+		else {
+			$this->entityManager->persist($baseEntity);
+		}
+
 		$this->entityManager->flush();
 
 		return $baseEntity;

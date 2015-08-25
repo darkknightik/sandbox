@@ -6,6 +6,7 @@ use Tiplap\Doctrine\Entities\BaseEntity;
 use Tiplap\Doctrine\ORM\Tools\Pagination\PaginatorFixed;
 use Tiplap\Domain\Foo\FooDao;
 use Tiplap\Domain\Foo\FooEntity;
+use Tiplap\Domain\Foo\FooRepository;
 use Tiplap\Exception\RecordNotFoundException;
 use Tiplap\Filters\FooFilter;
 use Tiplap\Filters\IFilter;
@@ -19,9 +20,9 @@ class FooFacade extends BaseFacade
 
 	/**
 	 * @inject
-	 * @var FooDao
+	 * @var FooRepository
 	 */
-	private $fooDao;
+	private $fooRepository;
 
 	/**
 	 * @param FooFilter $filter
@@ -30,7 +31,7 @@ class FooFacade extends BaseFacade
 	public function find(IFilter $filter)
 	{
 		/** @var FooFilter $filter */
-		$pf =  new PaginatorFixed($this->fooDao->createQueryBuilder('i'));
+		$pf =  new PaginatorFixed($this->fooRepository->createQueryBuilder('i'));
 
 		return $pf->getQuery()
 			->setMaxResults($filter->getLimit())
@@ -45,7 +46,7 @@ class FooFacade extends BaseFacade
 	 */
 	public function get($id)
 	{
-		return $this->fooDao->find((int) $id);
+		return $this->fooRepository->find((int) $id);
 	}
 
 	/**

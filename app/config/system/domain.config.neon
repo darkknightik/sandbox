@@ -2,5 +2,5 @@ services:
 	- Tiplap\Doctrine\Tools\FormEntityMapper
 
 	-
-		class: Tiplap\Domain\Foo\FooDao
-		factory: @Kdyby\Doctrine\EntityManager::getDao(Tiplap\Domain\Foo\FooEntity)
+		class: Tiplap\Domain\Foo\FooRepository
+		factory: @Kdyby\Doctrine\EntityManager::getResource(Tiplap\Domain\Foo\FooEntity)
