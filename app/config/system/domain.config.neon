@@ -3,4 +3,4 @@ services:
 
 	-
 		class: Tiplap\Domain\Foo\FooRepository
-		factory: @Kdyby\Doctrine\EntityManager::getResource(Tiplap\Domain\Foo\FooEntity)
+		factory: @Kdyby\Doctrine\EntityManager::getRepository(Tiplap\Domain\Foo\FooEntity)
